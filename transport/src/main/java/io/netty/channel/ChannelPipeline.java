@@ -175,7 +175,7 @@ import java.util.NoSuchElementException;
  * }
  * </pre>
  *
- * <h3>Building a pipeline</h3>
+ * <h3>Building a pipeline</h3> [tzl]: user's responsibility, #API
  * <p>
  * A user is supposed to have one or more {@link ChannelHandler}s in a pipeline to receive I/O events (e.g. read) and
  * to request I/O operations (e.g. write and close).  For example, a typical server will have the following handlers
