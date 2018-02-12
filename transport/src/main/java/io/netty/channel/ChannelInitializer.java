@@ -46,7 +46,7 @@ import java.util.concurrent.ConcurrentMap;
  * ...
  * </pre>
  * Be aware that this class is marked as {@link Sharable} and so the implementation must be safe to be re-used.
- *
+ * [tzl]: user programming facilities
  * @param <C>   A sub-type of {@link Channel}
  */
 @Sharable

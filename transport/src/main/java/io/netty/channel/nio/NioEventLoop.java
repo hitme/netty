@@ -51,7 +51,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /**
  * {@link SingleThreadEventLoop} implementation which register the {@link Channel}'s to a
  * {@link Selector} and so does the multi-plexing of these in the event loop.
- *
+ * [tzl]: #Reactor reactor in the reactor pattern
  */
 public final class NioEventLoop extends SingleThreadEventLoop {
 
@@ -78,7 +78,7 @@ public final class NioEventLoop extends SingleThreadEventLoop {
         }
     };
 
-    // Workaround for JDK NIO bug.
+    // Workaround for JDK NIO bug. // [tzl]: ref: http://www.10tiao.com/html/308/201602/401718035/1.html
     //
     // See:
     // - http://bugs.sun.com/view_bug.do?bug_id=6427854
@@ -275,7 +275,7 @@ public final class NioEventLoop extends SingleThreadEventLoop {
     /**
      * Registers an arbitrary {@link SelectableChannel}, not necessarily created by Netty, to the {@link Selector}
      * of this event loop.  Once the specified {@link SelectableChannel} is registered, the specified {@code task} will
-     * be executed by this event loop when the {@link SelectableChannel} is ready.
+     * be executed by this event loop when the {@link SelectableChannel} is ready. // [tzl]: #API
      */
     public void register(final SelectableChannel ch, final int interestOps, final NioTask<?> task) {
         if (ch == null) {
@@ -787,7 +787,7 @@ public final class NioEventLoop extends SingleThreadEventLoop {
                             "Selector.select() returned prematurely {} times in a row; rebuilding Selector {}.",
                             selectCnt, selector);
 
-                    rebuildSelector();
+                    rebuildSelector(); // [tzl]: netty nio 100% cpu bug workaround, http://www.10tiao.com/html/308/201602/401718035/1.html
                     selector = this.selector;
 
                     // Select again to populate selectedKeys.
