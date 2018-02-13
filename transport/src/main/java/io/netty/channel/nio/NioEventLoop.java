@@ -786,8 +786,8 @@ public final class NioEventLoop extends SingleThreadEventLoop {
                     logger.warn(
                             "Selector.select() returned prematurely {} times in a row; rebuilding Selector {}.",
                             selectCnt, selector);
-
-                    rebuildSelector(); // [tzl]: netty nio 100% cpu bug workaround, http://www.10tiao.com/html/308/201602/401718035/1.html
+                    // [tzl]: netty nio 100% cpu bug workaround, http://www.10tiao.com/html/308/201602/401718035/1.html
+                    rebuildSelector();
                     selector = this.selector;
 
                     // Select again to populate selectedKeys.
