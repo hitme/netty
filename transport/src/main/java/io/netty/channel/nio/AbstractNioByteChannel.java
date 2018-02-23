@@ -113,6 +113,7 @@ public abstract class AbstractNioByteChannel extends AbstractNioChannel {
         @Override
         public final void read() {
             final ChannelConfig config = config();
+            // [tzl]: interceptor pipeline debut
             final ChannelPipeline pipeline = pipeline();
             final ByteBufAllocator allocator = config.getAllocator();
             final RecvByteBufAllocator.Handle allocHandle = recvBufAllocHandle();
