@@ -117,6 +117,7 @@ public class DefaultChannelPipeline implements ChannelPipeline {
     }
 
     private AbstractChannelHandlerContext newContext(EventExecutorGroup group, String name, ChannelHandler handler) {
+        //[tzl]: unique context per addition of a ChannelHandler to a ChannelPipeline via addXXX(...) and replace(...) methods
         return new DefaultChannelHandlerContext(this, childExecutor(group), name, handler);
     }
 
