@@ -196,7 +196,7 @@ public interface ChannelOutboundInvoker {
      * This will result in having the
      * {@link ChannelOutboundHandler#read(ChannelHandlerContext)}
      * method called of the next {@link ChannelOutboundHandler} contained in the {@link ChannelPipeline} of the
-     * {@link Channel}.
+     * {@link Channel}.[tzl]: implemented in Channel, ChannelPipeline, ChannelContext.
      */
     ChannelOutboundInvoker read();
 
