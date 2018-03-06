@@ -933,7 +933,7 @@ abstract class AbstractChannelHandlerContext extends DefaultAttributeMap
 
     private AbstractChannelHandlerContext findContextInbound() {
         AbstractChannelHandlerContext ctx = this;
-        do {
+        do {// [tzl]: advances to next handler in 'chain'
             ctx = ctx.next;
         } while (!ctx.inbound);
         return ctx;
@@ -941,7 +941,7 @@ abstract class AbstractChannelHandlerContext extends DefaultAttributeMap
 
     private AbstractChannelHandlerContext findContextOutbound() {
         AbstractChannelHandlerContext ctx = this;
-        do {
+        do {// [tzl]: advances to next handler in 'chain'
             ctx = ctx.prev;
         } while (!ctx.outbound);
         return ctx;
