@@ -115,7 +115,7 @@ public abstract class AbstractEpollServerChannel extends AbstractEpollChannel im
                             break;
                         }
                         allocHandle.incMessagesRead(1);
-
+                        //[tzl]: create child channels and pass to the acceptor i.e. ServerBootstrap#ServerBootstrapAcceptor
                         readPending = false;
                         pipeline.fireChannelRead(newChildChannel(allocHandle.lastBytesRead(), acceptedAddress, 1,
                                                                  acceptedAddress[0]));

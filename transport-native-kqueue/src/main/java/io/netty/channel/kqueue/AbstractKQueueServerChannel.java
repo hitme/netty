@@ -107,7 +107,7 @@ public abstract class AbstractKQueueServerChannel extends AbstractKQueueChannel 
                         }
                         allocHandle.lastBytesRead(1);
                         allocHandle.incMessagesRead(1);
-
+                        //[tzl]: create child channels and pass to the acceptor i.e. ServerBootstrap#ServerBootstrapAcceptor
                         readPending = false;
                         pipeline.fireChannelRead(newChildChannel(acceptFd, acceptedAddress, 1,
                                                                  acceptedAddress[0]));
